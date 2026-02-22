@@ -1,0 +1,93 @@
+2024-03-15 13:00:00 UTC [INFO] PostgreSQL 14.5 started on port 5432
+2024-03-15 13:05:23 UTC [LOG] connection received: host=10.0.1.45 port=52341
+2024-03-15 13:05:23 UTC [LOG] connection authorized: user=payment_app database=payments_db
+2024-03-15 13:05:23 UTC [LOG] execute: SELECT * FROM payments WHERE id = $1
+2024-03-15 13:05:23 UTC [LOG] duration: 12.345 ms
+2024-03-15 13:05:23 UTC [LOG] execute: INSERT INTO payments (user_id, amount, status) VALUES ($1, $2, $3)
+2024-03-15 13:05:23 UTC [LOG] duration: 8.234 ms
+2024-03-15 13:05:23 UTC [LOG] connection closed: host=10.0.1.45 port=52341 duration=0.234s
+2024-03-15 14:20:15 UTC [LOG] connection received: host=10.0.1.47 port=53122
+2024-03-15 14:20:15 UTC [LOG] connection authorized: user=payment_app database=payments_db
+2024-03-15 14:20:15 UTC [LOG] execute: BEGIN
+2024-03-15 14:20:15 UTC [LOG] execute: SELECT * FROM payments WHERE id = $1
+2024-03-15 14:20:15 UTC [LOG] duration: 15.123 ms
+2024-03-15 14:25:30 UTC [LOG] active connections: 85/100
+2024-03-15 14:25:30 UTC [WARN] connection pool nearing capacity
+2024-03-15 14:25:45 UTC [LOG] connection received: host=10.0.1.48 port=54201
+2024-03-15 14:25:45 UTC [LOG] connection authorized: user=payment_app database=payments_db
+2024-03-15 14:25:45 UTC [LOG] execute: BEGIN
+2024-03-15 14:25:45 UTC [LOG] execute: SELECT * FROM users WHERE id = $1 FOR UPDATE
+2024-03-15 14:25:45 UTC [LOG] execute: INSERT INTO cashback_transactions (user_id, amount, created_at) VALUES ($1, $2, NOW())
+2024-03-15 14:25:45 UTC [LOG] execute: INSERT INTO notifications (user_id, type, message, created_at) VALUES ($1, $2, $3, NOW())
+2024-03-15 14:25:47 UTC [LOG] duration: 2.345 s (transaction still open)
+2024-03-15 14:26:12 UTC [LOG] active connections: 92/100
+2024-03-15 14:26:12 UTC [WARN] connection pool at 92% capacity
+2024-03-15 14:27:05 UTC [ERROR] FATAL: remaining connection slots are reserved for non-replication superuser connections
+2024-03-15 14:27:05 UTC [LOG] active connections: 100/100 (EXHAUSTED)
+2024-03-15 14:27:05 UTC [LOG] waiting connections: 12
+2024-03-15 14:27:10 UTC [LOG] connection received: host=10.0.1.45 port=55432
+2024-03-15 14:27:10 UTC [ERROR] FATAL: sorry, too many clients already
+2024-03-15 14:27:15 UTC [LOG] waiting connections: 23
+2024-03-15 14:28:23 UTC [LOG] connection received: host=10.0.1.46 port=56123
+2024-03-15 14:28:23 UTC [ERROR] FATAL: sorry, too many clients already
+2024-03-15 14:28:45 UTC [LOG] connection received: host=10.0.1.47 port=56789
+2024-03-15 14:28:45 UTC [ERROR] FATAL: sorry, too many clients already
+2024-03-15 14:29:12 UTC [LOG] active connections: 100/100 (EXHAUSTED for 60s)
+2024-03-15 14:29:12 UTC [LOG] waiting connections: 45
+2024-03-15 14:29:12 UTC [WARN] Long-running transactions detected:
+2024-03-15 14:29:12 UTC [WARN]   - pid=12345 duration=3m45s query=INSERT INTO notifications...
+2024-03-15 14:29:12 UTC [WARN]   - pid=12346 duration=3m30s query=INSERT INTO notifications...
+2024-03-15 14:29:12 UTC [WARN]   - pid=12347 duration=3m15s query=INSERT INTO notifications...
+2024-03-15 14:29:12 UTC [WARN]   - pid=12348 duration=3m00s query=INSERT INTO notifications...
+2024-03-15 14:30:00 UTC [LOG] active connections: 100/100
+2024-03-15 14:30:00 UTC [LOG] waiting connections: 67
+2024-03-15 14:30:15 UTC [LOG] connection received: host=10.0.1.48 port=57234
+2024-03-15 14:30:15 UTC [ERROR] FATAL: sorry, too many clients already
+2024-03-15 14:30:30 UTC [LOG] connection received: host=10.0.1.45 port=57890
+2024-03-15 14:30:30 UTC [ERROR] FATAL: sorry, too many clients already
+2024-03-15 14:31:15 UTC [WARN] Connection leak analysis:
+2024-03-15 14:31:15 UTC [WARN]   - 23 connections held for >30 seconds
+2024-03-15 14:31:15 UTC [WARN]   - All leaked connections in state: idle in transaction
+2024-03-15 14:31:15 UTC [WARN]   - Common pattern: BEGIN -> INSERT notifications -> NO COMMIT/ROLLBACK
+2024-03-15 14:31:15 UTC [WARN]   - Application: payment_app (cashback_service module)
+2024-03-15 14:32:00 UTC [LOG] active connections: 100/100
+2024-03-15 14:32:00 UTC [LOG] waiting connections: 89
+2024-03-15 14:35:45 UTC [LOG] DBA query: SELECT pid, state, query, query_start FROM pg_stat_activity
+2024-03-15 14:40:23 UTC [LOG] DBA analysis: Identified connection leak in cashback notification flow
+2024-03-15 14:45:45 UTC [WARN] Transaction pid=12389 has been idle in transaction for 20m
+2024-03-15 14:45:45 UTC [WARN] Query: INSERT INTO notifications (user_id, type, message, created_at) VALUES...
+2024-03-15 14:50:15 UTC [LOG] Connections being closed due to application shutdown
+2024-03-15 14:50:16 UTC [LOG] connection closed: pid=12345 duration=25m
+2024-03-15 14:50:16 UTC [LOG] connection closed: pid=12346 duration=24m
+2024-03-15 14:50:17 UTC [LOG] active connections: 0/100
+2024-03-15 14:50:30 UTC [LOG] connection received: host=10.0.1.45 port=58123
+2024-03-15 14:50:30 UTC [LOG] connection authorized: user=payment_app database=payments_db
+2024-03-15 14:50:30 UTC [LOG] execute: BEGIN
+2024-03-15 14:51:45 UTC [LOG] active connections: 95/100
+2024-03-15 14:51:45 UTC [WARN] Connection pool filling up again rapidly
+2024-03-15 14:51:45 UTC [WARN] Same pattern detected: idle in transaction in notification inserts
+2024-03-15 14:52:12 UTC [ERROR] FATAL: remaining connection slots are reserved for non-replication superuser connections
+2024-03-15 14:52:12 UTC [LOG] active connections: 100/100 (EXHAUSTED AGAIN)
+2024-03-15 15:00:30 UTC [LOG] Connections being closed due to rollback deployment
+2024-03-15 15:00:31 UTC [LOG] All connections closed
+2024-03-15 15:00:31 UTC [LOG] active connections: 0/100
+2024-03-15 15:01:00 UTC [LOG] connection received: host=10.0.1.45 port=59001
+2024-03-15 15:01:00 UTC [LOG] connection authorized: user=payment_app database=payments_db
+2024-03-15 15:02:15 UTC [LOG] execute: BEGIN
+2024-03-15 15:02:15 UTC [LOG] execute: SELECT * FROM payments WHERE id = $1
+2024-03-15 15:02:15 UTC [LOG] execute: INSERT INTO payments (user_id, amount, status) VALUES ($1, $2, $3)
+2024-03-15 15:02:15 UTC [LOG] execute: COMMIT
+2024-03-15 15:02:15 UTC [LOG] duration: 0.234 s
+2024-03-15 15:02:15 UTC [LOG] connection closed: host=10.0.1.45 port=59001 duration=0.234s
+2024-03-15 15:03:30 UTC [LOG] active connections: 45/100
+2024-03-15 15:05:00 UTC [LOG] connection received: host=10.0.1.46 port=59234
+2024-03-15 15:05:00 UTC [LOG] connection authorized: user=payment_app database=payments_db
+2024-03-15 15:05:00 UTC [LOG] execute: BEGIN
+2024-03-15 15:05:00 UTC [LOG] execute: SELECT * FROM payments WHERE id = $1
+2024-03-15 15:05:00 UTC [LOG] execute: INSERT INTO payments (user_id, amount, status) VALUES ($1, $2, $3)
+2024-03-15 15:05:00 UTC [LOG] execute: COMMIT
+2024-03-15 15:05:00 UTC [LOG] duration: 0.189 s
+2024-03-15 15:05:00 UTC [LOG] connection closed: host=10.0.1.46 port=59234 duration=0.189s
+2024-03-15 15:10:00 UTC [LOG] active connections: 38/100
+2024-03-15 15:10:00 UTC [LOG] Connection pool healthy, no leaks detected
+2024-03-15 15:15:00 UTC [LOG] System stable, connection usage normal

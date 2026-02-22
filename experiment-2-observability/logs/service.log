@@ -1,0 +1,30 @@
+{"timestamp": "2026-02-22T16:19:30.293513", "level": "INFO", "message": "Processing request req-000", "context": {"data_size": 32}, "request_id": "req-000"}
+{"timestamp": "2026-02-22T16:19:30.364562", "level": "INFO", "message": "Request req-000 completed successfully", "context": {"status": "success"}, "request_id": "req-000"}
+{"timestamp": "2026-02-22T16:19:30.364952", "level": "DEBUG", "message": "Request req-000 metrics", "context": {"latency_ms": 71.53010368347168, "total_requests": 1}, "request_id": "req-000"}
+{"timestamp": "2026-02-22T16:19:30.365256", "level": "INFO", "message": "Processing request req-001", "context": {"data_size": 32}, "request_id": "req-001"}
+{"timestamp": "2026-02-22T16:19:30.391938", "level": "INFO", "message": "Request req-001 completed successfully", "context": {"status": "success"}, "request_id": "req-001"}
+{"timestamp": "2026-02-22T16:19:30.394111", "level": "DEBUG", "message": "Request req-001 metrics", "context": {"latency_ms": 28.59210968017578, "total_requests": 2}, "request_id": "req-001"}
+{"timestamp": "2026-02-22T16:19:30.394918", "level": "INFO", "message": "Processing request req-002", "context": {"data_size": 32}, "request_id": "req-002"}
+{"timestamp": "2026-02-22T16:19:30.422812", "level": "INFO", "message": "Request req-002 completed successfully", "context": {"status": "success"}, "request_id": "req-002"}
+{"timestamp": "2026-02-22T16:19:30.423151", "level": "DEBUG", "message": "Request req-002 metrics", "context": {"latency_ms": 28.700590133666992, "total_requests": 3}, "request_id": "req-002"}
+{"timestamp": "2026-02-22T16:19:30.423424", "level": "INFO", "message": "Processing request req-003", "context": {"data_size": 32}, "request_id": "req-003"}
+{"timestamp": "2026-02-22T16:19:30.472091", "level": "INFO", "message": "Request req-003 completed successfully", "context": {"status": "success"}, "request_id": "req-003"}
+{"timestamp": "2026-02-22T16:19:30.472364", "level": "DEBUG", "message": "Request req-003 metrics", "context": {"latency_ms": 48.91204833984375, "total_requests": 4}, "request_id": "req-003"}
+{"timestamp": "2026-02-22T16:19:30.472932", "level": "INFO", "message": "Processing request req-004", "context": {"data_size": 32}, "request_id": "req-004"}
+{"timestamp": "2026-02-22T16:19:30.525542", "level": "INFO", "message": "Request req-004 completed successfully", "context": {"status": "success"}, "request_id": "req-004"}
+{"timestamp": "2026-02-22T16:19:30.525867", "level": "DEBUG", "message": "Request req-004 metrics", "context": {"latency_ms": 53.02906036376953, "total_requests": 5}, "request_id": "req-004"}
+{"timestamp": "2026-02-22T16:19:30.526275", "level": "INFO", "message": "Processing request req-005", "context": {"data_size": 32}, "request_id": "req-005"}
+{"timestamp": "2026-02-22T16:19:30.607991", "level": "ERROR", "message": "Request req-005 failed: Simulated processing error", "context": {"error_type": "ValueError", "error_message": "Simulated processing error"}, "request_id": "req-005"}
+{"timestamp": "2026-02-22T16:19:30.608566", "level": "DEBUG", "message": "Request req-005 metrics", "context": {"latency_ms": 82.16166496276855, "total_requests": 6}, "request_id": "req-005"}
+{"timestamp": "2026-02-22T16:19:30.609310", "level": "INFO", "message": "Processing request req-006", "context": {"data_size": 32}, "request_id": "req-006"}
+{"timestamp": "2026-02-22T16:19:30.639685", "level": "INFO", "message": "Request req-006 completed successfully", "context": {"status": "success"}, "request_id": "req-006"}
+{"timestamp": "2026-02-22T16:19:30.639983", "level": "DEBUG", "message": "Request req-006 metrics", "context": {"latency_ms": 30.782699584960938, "total_requests": 7}, "request_id": "req-006"}
+{"timestamp": "2026-02-22T16:19:30.640372", "level": "INFO", "message": "Processing request req-007", "context": {"data_size": 32}, "request_id": "req-007"}
+{"timestamp": "2026-02-22T16:19:30.692969", "level": "INFO", "message": "Request req-007 completed successfully", "context": {"status": "success"}, "request_id": "req-007"}
+{"timestamp": "2026-02-22T16:19:30.693365", "level": "DEBUG", "message": "Request req-007 metrics", "context": {"latency_ms": 52.87742614746094, "total_requests": 8}, "request_id": "req-007"}
+{"timestamp": "2026-02-22T16:19:30.693917", "level": "INFO", "message": "Processing request req-008", "context": {"data_size": 32}, "request_id": "req-008"}
+{"timestamp": "2026-02-22T16:19:30.762161", "level": "INFO", "message": "Request req-008 completed successfully", "context": {"status": "success"}, "request_id": "req-008"}
+{"timestamp": "2026-02-22T16:19:30.762620", "level": "DEBUG", "message": "Request req-008 metrics", "context": {"latency_ms": 68.51077079772949, "total_requests": 9}, "request_id": "req-008"}
+{"timestamp": "2026-02-22T16:19:30.763231", "level": "INFO", "message": "Processing request req-009", "context": {"data_size": 32}, "request_id": "req-009"}
+{"timestamp": "2026-02-22T16:19:30.841300", "level": "ERROR", "message": "Request req-009 failed: Simulated processing error", "context": {"error_type": "ValueError", "error_message": "Simulated processing error"}, "request_id": "req-009"}
+{"timestamp": "2026-02-22T16:19:30.841658", "level": "DEBUG", "message": "Request req-009 metrics", "context": {"latency_ms": 78.49335670471191, "total_requests": 10}, "request_id": "req-009"}

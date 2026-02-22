@@ -1,0 +1,52 @@
+2024-03-15T13:00:15.234Z [INFO] deployment_manager - Starting deployment of version 2.4.0
+2024-03-15T13:00:45.123Z [INFO] deployment_manager - Health checks passed, switching traffic to new version
+2024-03-15T13:01:00.456Z [INFO] payment_service - Payment service v2.4.0 started successfully
+2024-03-15T13:05:22.789Z [INFO] payment_service - Processing payment request_id=pay_001 amount=150.00
+2024-03-15T13:05:23.012Z [INFO] cashback_service - Calculating cashback for user_id=usr_4521 amount=150.00
+2024-03-15T13:05:23.234Z [INFO] notification_service - Sending cashback notification to user_id=usr_4521
+2024-03-15T13:05:23.456Z [INFO] payment_service - Payment completed request_id=pay_001 status=success
+2024-03-15T14:20:15.123Z [INFO] payment_service - Processing payment request_id=pay_789 amount=89.90
+2024-03-15T14:20:15.345Z [INFO] cashback_service - Calculating cashback for user_id=usr_8821 amount=89.90
+2024-03-15T14:20:15.567Z [INFO] notification_service - Sending cashback notification to user_id=usr_8821
+2024-03-15T14:20:15.789Z [INFO] payment_service - Payment completed request_id=pay_789 status=success
+2024-03-15T14:25:30.123Z [WARN] database_pool - Connection pool usage at 85% (85/100 connections)
+2024-03-15T14:25:45.234Z [WARN] payment_service - Slow query detected query_time=2.3s request_id=pay_890
+2024-03-15T14:26:12.456Z [WARN] database_pool - Connection pool usage at 92% (92/100 connections)
+2024-03-15T14:27:05.678Z [ERROR] database_pool - Connection pool exhausted, waiting for available connection
+2024-03-15T14:27:05.890Z [WARN] payment_service - Database connection timeout request_id=pay_901 wait_time=5.2s
+2024-03-15T14:28:23.123Z [ERROR] payment_service - Failed to process payment request_id=pay_912 error=DatabaseConnectionTimeout
+2024-03-15T14:28:45.234Z [ERROR] payment_service - Failed to process payment request_id=pay_915 error=DatabaseConnectionTimeout
+2024-03-15T14:29:12.345Z [ERROR] database_pool - Connection pool exhausted for 60 seconds, active_connections=100 waiting_requests=45
+2024-03-15T14:30:00.456Z [CRITICAL] payment_service - Error rate exceeded threshold current=15.2% threshold=5%
+2024-03-15T14:30:15.567Z [ERROR] payment_service - Failed to process payment request_id=pay_923 error=DatabaseConnectionTimeout
+2024-03-15T14:30:30.678Z [ERROR] payment_service - Failed to process payment request_id=pay_928 error=DatabaseConnectionTimeout
+2024-03-15T14:30:45.789Z [INFO] cashback_service - Calculating cashback for user_id=usr_9234 amount=200.00
+2024-03-15T14:30:46.012Z [ERROR] notification_service - Failed to send notification user_id=usr_9234 error=DatabaseConnectionTimeout
+2024-03-15T14:31:00.123Z [ERROR] cashback_service - Failed to record cashback user_id=usr_9234 error=DatabaseConnectionTimeout
+2024-03-15T14:31:15.234Z [WARN] database_pool - Connection leak detected: 23 connections held for >30 seconds
+2024-03-15T14:31:30.345Z [ERROR] payment_service - Failed to process payment request_id=pay_945 error=DatabaseConnectionTimeout
+2024-03-15T14:32:00.456Z [CRITICAL] monitoring - PagerDuty alert triggered: payment_service_high_error_rate
+2024-03-15T14:35:12.567Z [INFO] ops_team - Investigation started by engineer=john.doe
+2024-03-15T14:35:45.678Z [INFO] ops_team - Checking application metrics and logs
+2024-03-15T14:40:23.789Z [WARN] ops_team - Identified connection pool exhaustion in database logs
+2024-03-15T14:45:30.890Z [INFO] ops_team - Analyzing connection usage patterns
+2024-03-15T14:45:45.012Z [WARN] cashback_service - Connection held for 15.3 seconds in calculate_and_notify method
+2024-03-15T14:46:12.123Z [ERROR] payment_service - Failed to process payment request_id=pay_1023 error=DatabaseConnectionTimeout
+2024-03-15T14:50:00.234Z [INFO] ops_team - Attempting service restart
+2024-03-15T14:50:15.345Z [INFO] payment_service - Shutting down gracefully
+2024-03-15T14:50:30.456Z [INFO] payment_service - Payment service v2.4.0 started successfully
+2024-03-15T14:51:45.567Z [ERROR] database_pool - Connection pool exhausted again after restart
+2024-03-15T14:52:12.678Z [ERROR] payment_service - Failed to process payment request_id=pay_1045 error=DatabaseConnectionTimeout
+2024-03-15T14:55:00.789Z [CRITICAL] ops_team - Restart did not resolve issue, proceeding with rollback
+2024-03-15T15:00:00.890Z [INFO] deployment_manager - Starting rollback to version 2.3.5
+2024-03-15T15:00:30.012Z [INFO] deployment_manager - Health checks passed, switching traffic to version 2.3.5
+2024-03-15T15:01:00.123Z [INFO] payment_service - Payment service v2.3.5 started successfully
+2024-03-15T15:02:15.234Z [INFO] payment_service - Processing payment request_id=pay_1067 amount=75.50
+2024-03-15T15:02:15.456Z [INFO] payment_service - Payment completed request_id=pay_1067 status=success
+2024-03-15T15:03:30.567Z [INFO] database_pool - Connection pool usage at 45% (45/100 connections)
+2024-03-15T15:05:00.678Z [INFO] payment_service - Processing payment request_id=pay_1089 amount=120.00
+2024-03-15T15:05:00.890Z [INFO] payment_service - Payment completed request_id=pay_1089 status=success
+2024-03-15T15:10:00.012Z [INFO] monitoring - Error rate normalized to 0.2%
+2024-03-15T15:10:15.123Z [INFO] monitoring - Latency metrics back to normal: avg=210ms p95=480ms
+2024-03-15T15:15:00.234Z [INFO] ops_team - Incident resolved, system stable on version 2.3.5
+2024-03-15T15:15:30.345Z [INFO] ops_team - Post-mortem scheduled for investigation of v2.4.0 issues

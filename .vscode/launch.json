@@ -1,0 +1,75 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Experiment 1: Debugging Multi-Tipo",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/code/experiment-1-debugging/buggy_code.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Experiment 2: Observability Service",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/code/experiment-2-observability/service.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Experiment 3: Race Condition",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/code/experiment-3-concurrency/race_condition.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Pytest Current File",
+            "type": "python",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "${file}",
+                "-v"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Python: All Tests",
+            "type": "python",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "code/",
+                "-v"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Python: All Tests with Coverage",
+            "type": "python",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "code/",
+                "-v",
+                "--cov=code",
+                "--cov-report=html"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}
