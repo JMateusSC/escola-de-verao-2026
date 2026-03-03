@@ -18,15 +18,19 @@ A técnica dos **5 Porquês** é um método de análise de causa raiz desenvolvi
 
 **Descreva o problema observado pelos usuários ou pelo sistema:**
 
-[Escreva aqui o sintoma principal do incidente - o que foi observado primeiro?]
+O sistema de pagamentos apresentou timeouts generalizados, com usuários incapazes de completar transações. A taxa de erro saltou de 0.1% para 15% em poucos minutos, e a latência média aumentou de 200ms para 8.000ms.
 
 **Quando ocorreu:**
 
-[Data e horário do início do problema]
+15 de março de 2024, às 14:30 BRT (aproximadamente 1h30 após o deploy da versão 2.4.0)
 
 **Impacto:**
 
-[Descreva o impacto nos usuários, sistema, negócio]
+- 3.500 usuários afetados
+- 6.750 tentativas de pagamento falharam
+- R$ 125.000 em receita perdida
+- 89 tickets de suporte abertos
+- 23 menções negativas em redes sociais
 
 ---
 
